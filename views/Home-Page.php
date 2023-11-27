@@ -5,11 +5,18 @@
  */
 
 
-$data = [
-    'title' => 'A Timber Tutorial - Azi',
-];
+$context = Timber::context();
+$context['posts'] = Timber::get_posts();
+$context['foo'] = 'bar';
+$templates = array('./Home-Page.twig');
 
-Timber::render('./Home-Page.twig', $data);
+Timber::render($templates, $context);
+
+// $data = [
+//     'title' => 'A Timber Tutorial - Azi',
+// ];
+
+// Timber::render('./Home-Page.twig', $data);
 
 // get_template_part('views/base/ctrl/header');
 
